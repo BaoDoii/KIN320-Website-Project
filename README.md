@@ -28,3 +28,9 @@ Written Content → /6
 Critical Analysis → /7
 Writing Quality & Citations → /4
 Website Effort → /3
+
+
+
+Brian Ha - One Long Essay : Rocky IV
+Andy Mei - 
+Giselle Gutierrez -
