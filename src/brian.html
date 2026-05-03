@@ -31,9 +31,53 @@
     .nav-back::before { content: '←'; }
     .nav-back:hover { color: var(--red-bright); }
 
-    /* HERO */
-    .review-hero { padding: 9rem 5rem 5rem; max-width: 1000px; margin: 0 auto; position: relative; }
-    .review-hero::before { content: 'ROCKY IV'; position: absolute; top: 7rem; right: 3rem; font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(204,31,31,0.06); letter-spacing: 0.05em; pointer-events: none; white-space: nowrap; }
+    /* HERO BANNER IMAGE */
+    .hero-banner {
+      margin-top: 60px; /* nav height */
+      width: 100%;
+      height: 480px;
+      background: var(--dark-3);
+      border-bottom: 2px solid rgba(204,31,31,0.25);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Placeholder shown when no image is present */
+    .hero-banner-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--muted);
+      width: 100%;
+      height: 100%;
+      border: 2px dashed rgba(204,31,31,0.3);
+    }
+    .hero-banner-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.4; }
+    .hero-banner-placeholder .ph-label { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.5; }
+    .hero-banner-placeholder .ph-hint { font-size: 0.6rem; letter-spacing: 0.12em; color: rgba(204,31,31,0.5); }
+    /* Dark gradient overlay on real image */
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.7) 100%);
+      pointer-events: none;
+    }
+
+    /* HERO TEXT */
+    .review-hero { padding: 3.5rem 5rem 4rem; max-width: 1000px; margin: 0 auto; position: relative; }
+    .review-hero::before { content: 'ROCKY IV'; position: absolute; top: 2rem; right: 3rem; font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(204,31,31,0.06); letter-spacing: 0.05em; pointer-events: none; white-space: nowrap; }
     .review-kicker { font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
     .review-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.9; letter-spacing: 0.03em; color: var(--cream); margin-bottom: 0.75rem; opacity: 0; animation: fadeUp 0.7s 0.4s forwards; }
     .review-title .word-iv { color: var(--red-bright); }
@@ -64,6 +108,46 @@
     .essay-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; color: var(--cream); margin: 3em 0 1em; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(204,31,31,0.2); }
     .essay-body blockquote { font-style: italic; font-size: 1.2rem; color: var(--muted); display: block; margin: 2.5em 0; padding: 1rem 1.5rem; border-left: 2px solid var(--red); line-height: 1.7; }
     .essay-body blockquote cite { display: block; font-size: 0.8rem; font-style: normal; margin-top: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* INLINE IMAGE SLOTS */
+    .essay-image {
+      margin: 3em 0;
+      position: relative;
+    }
+    .essay-image img {
+      width: 100%;
+      display: block;
+      border: 1px solid rgba(204,31,31,0.25);
+    }
+    /* Placeholder for inline images */
+    .essay-image-placeholder {
+      width: 100%;
+      height: 260px;
+      background: var(--dark-3);
+      border: 1px dashed rgba(204,31,31,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: var(--muted);
+    }
+    .essay-image-placeholder .ph-icon { font-size: 1.8rem; opacity: 0.35; }
+    .essay-image-placeholder .ph-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.45; }
+    .essay-image figcaption {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0.6rem 0 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 0.4rem;
+    }
+    .essay-image figcaption::before {
+      content: '▲ ';
+      color: var(--red);
+      font-size: 0.55rem;
+    }
 
     /* REFERENCES */
     .references { border-top: 1px solid rgba(204,31,31,0.2); padding-top: 2.5rem; margin-top: 4rem; }
@@ -102,6 +186,16 @@
   <a class="nav-back" href="index.html">All Critics</a>
 </nav>
 
+<!-- HERO BANNER IMAGE -->
+<!-- To use a real image: replace the placeholder div below with: <img src="images/rocky4-banner.jpg" alt="Rocky IV"> -->
+<div class="hero-banner">
+  <div class="hero-banner-placeholder">
+    <div class="ph-icon">🎞</div>
+    <div class="ph-label">Hero Banner Image</div>
+    <div class="ph-hint">Replace with: images/rocky4-banner.jpg</div>
+  </div>
+</div>
+
 <div class="review-hero">
   <p class="review-kicker">Film Review &mdash; Boxing &mdash; 1985</p>
   <h1 class="review-title">Rocky <span class="word-iv">IV</span></h1>
@@ -134,54 +228,111 @@
   <div class="essay-body">
 
     <p>
-      [Your essay introduction goes here. Write it in a professional magazine voice — 
-      direct, authoritative, and engaging. Set up your central argument about Rocky IV 
-      in this opening paragraph. Aim for 4–5 pages double spaced total.]
+      There is a particular kind of sports film that has very little to do with sport. The game, the fight, the race — these are merely the surface. Beneath them runs something older and more urgent: the need to prove, through athletic contest, that one nation, one ideology, one way of life is superior to another. Rocky IV, released in 1985 at the height of Cold War tension, is perhaps the most nakedly ideological sports film ever produced by Hollywood. Directed by and starring Sylvester Stallone, it takes the already mythologized figure of Rocky Balboa and deploys him as a weapon — not against an opponent, but against an entire geopolitical order. To watch Rocky IV today is to watch propaganda dressed in boxing gloves, and to watch it carefully is to understand just how effectively popular cinema can transform international sport into what George Orwell once called "war minus the shooting."
     </p>
 
-    <h2>The Cold War as Backdrop</h2>
+    <h2>War Minus the Shooting: Sport as Proxy Conflict</h2>
 
     <p>
-      [Write your first body section here. This could cover how the film uses the 
-      Cold War as its dramatic engine — Rocky representing American individualism, 
-      Drago representing Soviet machinery.]
-    </p>
-
-    <blockquote>
-      "If I can change, and you can change, everybody can change."
-      <cite>— Rocky Balboa, Rocky IV (1985)</cite>
-    </blockquote>
-
-    <p>
-      [Continue the section after your quote. Analyze what this line means 
-      in the context of the film and the era it was made in.]
-    </p>
-
-    <h2>Cinematic Technique & Style</h2>
-
-    <p>
-      [This section can cover Stallone's directorial choices — the heavy use of 
-      montage, the score by Vince DiCola, the contrast between Rocky's mountain 
-      training and Drago's lab-based regime, etc.]
-    </p>
-
-    <h2>Sport, Myth & Cultural Significance</h2>
-
-    <p>
-      [Your final analytical section. What does Rocky IV say about sport as a 
-      cultural symbol? How does it fit into the broader landscape of sports cinema?]
+      Writing in 1945, George Orwell observed that international sport had become less about athletic competition and more about the expression of national hostility. In his essay "The Sporting Spirit," Orwell argued that sport between nations "is bound up with hatred, jealousy, boastfulness, disregard of all rules and sadistic pleasure in witnessing violence" (Orwell 1945). He famously described it as "war minus the shooting" — a phrase that, four decades later, Rocky IV illustrates almost frame by frame. The film does not attempt to disguise this. It announces it.
     </p>
 
     <p>
-      [Closing paragraph — your verdict. Be decisive. A good critic doesn't hedge.]
+      When Apollo Creed agrees to fight Soviet boxer Ivan Drago in an exhibition match, he frames the bout explicitly in terms of national identity. "It's us versus them," Creed declares, collapsing the distinction between athlete and soldier, between ring and battlefield. The crowd at the Las Vegas exhibition reinforces this framing: the American audience boos Drago with a ferocity that has nothing to do with anything Drago has done in the ring and everything to do with what he represents. Later, when Rocky travels to Moscow to fight Drago in the rematch, the dynamic is mirrored — the Soviet crowd greets Rocky with equal hostility, while Soviet officials speak of Americans as soft and inferior. The sport itself is almost incidental. What is being contested is not a boxing title but national dignity, ideological supremacy, and the right to claim that one's system of values is stronger than the other's.
+    </p>
+
+    <p>
+      The war-like stakes are made explicit in the film's emotional register as well. When Adrian begs Rocky not to fight Drago, she is not expressing the concern of a spouse worried about her husband's safety in a boxing match — she is expressing the fear of a civilian watching a loved one march toward the front. Her grief reads less like pre-fight anxiety and more like wartime dread. Rocky's training montage in the Soviet wilderness, which we will examine in greater detail shortly, is shot and scored less like athletic preparation than like military mobilization. These are not incidental creative choices; they are the grammar of the film's ideology.
+    </p>
+
+    <!-- INLINE IMAGE SLOT 1 -->
+    <!-- To use a real image: replace the placeholder below with: <img src="images/rocky4-apollo.jpg" alt="Apollo Creed vs. Drago exhibition fight"> -->
+    <figure class="essay-image">
+      <div class="essay-image-placeholder">
+        <div class="ph-icon">🎬</div>
+        <div class="ph-label">Inline Image Slot 1</div>
+      </div>
+      <figcaption>Apollo Creed's entrance at the Las Vegas exhibition — American spectacle as political statement. Replace with: images/rocky4-apollo.jpg</figcaption>
+    </figure>
+
+    <h2>The Technology Gap: Cold War Anxiety in the Training Montage</h2>
+
+    <p>
+      If the film's ideological argument is most visible in its crowd scenes and dialogue, it is most cinematically expressed in its training sequences. Rocky IV dedicates an unusual amount of screen time to parallel montages showing how each fighter prepares, and the contrast is so deliberate it borders on allegory. Ivan Drago trains in a sleek, sterile Soviet facility. He is surrounded by scientists, medical monitoring equipment, and computers measuring his punch force and physiological output. He is, in every visual sense, a product of a system — engineered rather than human, manufactured rather than born. The numbers on the computers are meant to be terrifying. They suggest not just physical superiority but a kind of inhuman optimization, the application of state technology to the production of an unbeatable weapon.
+    </p>
+
+    <p>
+      Rocky, by contrast, trains outdoors in the snow-covered mountains of the Soviet countryside. He chops wood, hauls logs, sprints up hillsides, and eventually scales a peak to scream his opponent's name into the frozen sky. His training has no equipment, no measurement, no institutional support. It is pure will, pure determination, pure American individualism rendered in sweat and cold air. This contrast maps directly onto Cold War anxieties that were very much alive in 1985: the fear that Soviet technological advancement — in military, scientific, and now athletic domains — posed an existential threat to the American way of life, which was understood to rest not on systems or institutions but on individual character and moral strength.
+    </p>
+
+    <p>
+      It is worth noting how differently technology reads today than it did in 1985. The fitness tracker on a runner's wrist, the biometric data fed into an athlete's training algorithm, the heart rate monitor worn during a pickup basketball game — these are all instances of technology in sport that contemporary audiences encounter as neutral or even positive. The monitoring equipment that Drago trains with looks, by modern standards, like a relatively basic sports science setup. But the film frames it as sinister, cold, and dehumanizing, because in 1985 the association between Soviet technological capability and existential threat was culturally automatic. Stallone was not inventing this anxiety; he was dramatizing it with the bluntness that his filmmaking style demands.
+    </p>
+
+    <!-- INLINE IMAGE SLOT 2 -->
+    <!-- To use a real image: replace the placeholder below with: <img src="images/rocky4-training.jpg" alt="Rocky training in the Soviet snow"> -->
+    <figure class="essay-image">
+      <div class="essay-image-placeholder">
+        <div class="ph-icon">🎬</div>
+        <div class="ph-label">Inline Image Slot 2</div>
+      </div>
+      <figcaption>Rocky's mountain training montage — individualism against the elements. Replace with: images/rocky4-training.jpg</figcaption>
+    </figure>
+
+    <h2>Cinematic Technique: Montage, Score, and the Grammar of Myth</h2>
+
+    <p>
+      Rocky IV is a film that operates almost entirely through montage and music. Stallone, as director, leans so heavily on these tools that some critics have dismissed the film as little more than a feature-length music video. This criticism misses the point. The montage is the point. The rapid cutting between images, the absence of conventional narrative development, the subordination of character and dialogue to image and sound — all of this is in service of a mythological register that realistic drama cannot sustain. You cannot make a myth through careful psychological portraiture. You make it through accumulation, repetition, and the emotional amplification that music provides.
+    </p>
+
+    <p>
+      Vince DiCola's synthesizer-driven score is one of the most distinctive elements of Rocky IV and one of the most revealing. The earlier Rocky films, scored by Bill Conti, used a warmer, more organic orchestral sound — brass, strings, and the famous "Gonna Fly Now" horn fanfare that became synonymous with underdog triumph. DiCola's score abandons this entirely in favor of pulsing synthesizers, electronic textures, and a sound palette that feels cold, futuristic, and vaguely militaristic. The choice is not accidental. The synthesizer score sonically aligns Rocky IV with the aesthetic of 1980s action cinema, but it also subtly positions the film's world as a high-stakes, technological battleground — a sonic environment appropriate for the geopolitical contest the film is staging. Even the music signals that this is not a boxing movie. It is something closer to a war film with training montages.
+    </p>
+
+    <p>
+      The cinematography follows a similar logic of contrast. Drago's world is lit in cold blues and institutional whites. Rocky's world, particularly in his mountain training sequences, is lit with the warm gold of effort and dawn. These are the visual languages of villain and hero that cinema has used for decades, but Rocky IV deploys them in the service of national allegory rather than individual characterization. Drago is lit like a Soviet institution. Rocky is lit like the American frontier. The camera tells you how to feel before a single punch is thrown.
+    </p>
+
+    <h2>The Moscow Crowd and the Film's Climactic Turn</h2>
+
+    <p>
+      The most dramatically significant moment in Rocky IV is not the knockout. It is the crowd. As the fight in Moscow progresses, something remarkable happens in the narrative: the Soviet audience, which has been booing Rocky and cheering Drago, begins to shift. Rocky's refusal to fall, his willingness to absorb punishment and continue throwing punches, moves the crowd in spite of themselves. By the final rounds, the Moscow audience is chanting Rocky's name. Soviet officials in their ringside boxes grow visibly uncomfortable. The crowd has abandoned the approved allegiance and chosen, spontaneously and emotionally, the American fighter.
+    </p>
+
+    <p>
+      This is the film's ideological climax, and it is worth taking seriously as a piece of cultural argument. What Stallone is suggesting is that the appeal of American values — individualism, determination, the refusal to accept defeat — is so universal that it can win over even a Soviet crowd. The crowd's conversion is the film's thesis statement, rendered in cheers rather than dialogue. It is also, of course, a fantasy. But it is a fantasy that tells us a great deal about what American popular culture in 1985 wanted to believe about itself and about its Cold War adversary: that beneath the ideological programming, ordinary people everywhere would recognize and respond to the American spirit. Rocky's closing speech — "If I can change, and you can change, everybody can change" — makes this subtext explicit, collapsing the distance between political systems and human nature in a single, improbable, deeply felt declaration.
+    </p>
+
+    <!-- INLINE IMAGE SLOT 3 -->
+    <!-- To use a real image: replace the placeholder below with: <img src="images/rocky4-moscow.jpg" alt="Rocky in the Moscow ring"> -->
+    <figure class="essay-image">
+      <div class="essay-image-placeholder">
+        <div class="ph-icon">🎬</div>
+        <div class="ph-label">Inline Image Slot 3</div>
+      </div>
+      <figcaption>The climactic Moscow bout — the moment the crowd turns. Replace with: images/rocky4-moscow.jpg</figcaption>
+    </figure>
+
+    <h2>Verdict</h2>
+
+    <p>
+      Rocky IV is not a great film in any conventional critical sense. Its characterization is thin, its plot minimal, its dialogue often blunt to the point of caricature. Ivan Drago's most memorable line — "If he dies, he dies" — is less a piece of characterization than a political cartoon rendered in five words. But to judge Rocky IV by the standards of realist drama is to misunderstand what it is and what it was trying to do. As a piece of mythological cinema, as a document of Cold War American ideology, and as a case study in how sport is used to stage political and national narratives, it is extraordinarily effective and endlessly revealing.
+    </p>
+
+    <p>
+      Orwell's warning about international sport — that it stokes international animosity rather than fostering goodwill, that it is less a substitute for war than a rehearsal for it — finds its most vivid Hollywood illustration in this film. Rocky IV does not pretend that the fight between Rocky and Drago is merely a boxing match. It insists, from its first frame to its last, that sport is politics by other means, that the ring is a proxy battlefield, and that the outcome carries stakes beyond any championship belt. Whether you find that vision thrilling or troubling — and it is entirely possible to find it both — Rocky IV remains one of the most honest sports films ever made, precisely because it refuses to pretend that sport exists outside of history, outside of power, and outside of the stories nations tell about themselves and each other.
     </p>
 
     <div class="references">
       <h3>References</h3>
       <ol>
-        <li>Author Last, First. (Year). <em>Title of source</em>. Publisher.</li>
-        <li>Author Last, First. (Year). Title of article. <em>Journal Name</em>, volume(issue), pages.</li>
-        <li>Add all citations here in your group's agreed citation style (APA/MLA/ASA).</li>
+        <li>Orwell, George. 1945. "The Sporting Spirit." <em>Tribune</em>, December 14.</li>
+        <li>Stallone, Sylvester, dir. 1985. <em>Rocky IV</em>. Metro-Goldwyn-Mayer.</li>
+        <li>Rosenbaum, Jonathan. 1997. <em>Movies as Politics</em>. University of California Press.</li>
+        <li>Denzin, Norman K. 1991. <em>Images of Postmodern Society: Social Theory and Contemporary Cinema</em>. SAGE Publications.</li>
+        <li>Kellner, Douglas. 1995. <em>Media Culture: Cultural Studies, Identity and Politics Between the Modern and the Postmodern</em>. Routledge.</li>
+        <li>Grindon, Leger. 1996. "Body and Soul: The Structure of Meaning in the Boxing Film Genre." <em>Cinema Journal</em> 35(4):54–69.</li>
+        <li>Baker, Aaron. 2003. <em>Contesting Identities: Sports in American Film</em>. University of Illinois Press.</li>
       </ol>
     </div>
 
