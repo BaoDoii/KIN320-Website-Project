@@ -34,6 +34,6 @@ Website Effort → /3
 
 Brian Ha - One Long Essay : Rocky IV
 
-Andy Mei - 
+Andy Mei - One Long Essay for Rocky IV
 
 Giselle Gutierrez -
